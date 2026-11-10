@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#17153b">
+<title>English Puzzle Adventure — Mastering Past Tense</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka:wght@500;600;700&display=swap');
+:root{--ink:#202044;--muted:#777797;--purple:#7657e8;--blue:#4e8df5;--pink:#f16ba8;--yellow:#ffd45c;--mint:#62d9b1;--paper:#fff;--line:#ecebfa;--shadow:0 18px 50px #29215a18}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Nunito,system-ui,sans-serif;color:var(--ink);background:radial-gradient(circle at 8% 10%,#e5e2ff 0,transparent 26%),radial-gradient(circle at 92% 5%,#ffe7f2 0,transparent 25%),linear-gradient(135deg,#f7f6ff,#eef6ff);overflow-x:hidden}
+button,input{font:inherit}button{cursor:pointer;border:0}button:focus-visible,input:focus-visible{outline:3px solid #ffbf3f;outline-offset:3px}
+.app{max-width:1180px;margin:auto;padding:24px}.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px}.brand{display:flex;align-items:center;gap:10px;font-family:Fredoka;font-size:20px;font-weight:700}.brand-icon{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--purple),var(--blue));display:grid;place-items:center;color:white;font-size:23px;box-shadow:0 7px 16px #7657e855}.top-actions{display:flex;gap:8px}.mini-btn{background:#ffffffc9;border:1px solid var(--line);padding:9px 13px;border-radius:12px;color:var(--ink);font-weight:800}
+.screen{display:none;animation:rise .35s ease}.screen.active{display:block}@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.hero{display:grid;grid-template-columns:1.08fr .92fr;gap:28px;align-items:center;background:#ffffffd9;border:1px solid #fff;border-radius:30px;padding:clamp(24px,5vw,58px);box-shadow:var(--shadow);position:relative;overflow:hidden}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;background:#f0edff;color:#6549d3;border-radius:99px;padding:7px 12px;font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+h1,h2,h3{font-family:Fredoka, sans-serif;margin:0 0 12px}h1{font-size:clamp(38px,6vw,68px);line-height:.98;letter-spacing:-1.5px;margin-top:18px}h1 span{color:var(--purple)}.lead{font-size:17px;line-height:1.7;color:var(--muted);max-width:520px}.hero-art{min-height:310px;display:grid;place-items:center;position:relative}.portal{width:min(330px,75vw);aspect-ratio:1;border-radius:50%;background:linear-gradient(145deg,#b9adff,#8bd5ff);display:grid;place-items:center;box-shadow:inset 0 0 0 16px #ffffff70,0 20px 45px #7764d544;position:relative}.portal:before,.portal:after{content:"";position:absolute;border:2px dashed #fff9;border-radius:50%;inset:22px;animation:spin 22s linear infinite}.portal:after{inset:-15px;animation-direction:reverse}@keyframes spin{to{transform:rotate(360deg)}}.mascot{font-size:clamp(110px,17vw,170px);filter:drop-shadow(0 14px 8px #5144a444);z-index:1;animation:bob 3s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-12px) rotate(3deg)}}.float{position:absolute;font-size:30px;animation:bob 4s ease-in-out infinite}.f1{top:15%;left:8%}.f2{right:4%;top:20%;animation-delay:.8s}.f3{bottom:10%;left:14%;animation-delay:1.3s}
+.name-row{display:flex;gap:10px;margin:24px 0 14px;max-width:510px}.name-row input{flex:1;min-width:0;padding:15px 17px;border:2px solid var(--line);border-radius:15px;background:white;color:var(--ink);font-weight:800}.btn{padding:14px 20px;border-radius:15px;font-weight:900;transition:.2s;display:inline-flex;align-items:center;justify-content:center;gap:8px}.btn:hover{transform:translateY(-2px);filter:brightness(1.04)}.primary{color:white;background:linear-gradient(135deg,var(--purple),#9275f7);box-shadow:0 8px 18px #7657e844}.secondary{background:#f1efff;color:#6048cb}.soft{background:white;border:1px solid var(--line);color:var(--ink)}.success{background:#e3fbf2;color:#14845f}.warning{background:#fff5d8;color:#946800}.button-row{display:flex;gap:10px;flex-wrap:wrap}.fine{font-size:12px;color:var(--muted);margin-top:12px}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin:24px 0 14px}.section-head p{margin:0;color:var(--muted)}.card{background:#fff;border:1px solid #fff;border-radius:22px;padding:22px;box-shadow:var(--shadow)}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.feature{padding:18px;border-radius:18px;background:#ffffffb8;border:1px solid #fff}.feature .emoji{font-size:28px}.feature h3{font-size:18px;margin:8px 0 4px}.feature p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}
+.level-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.level-card{background:#fff;border:2px solid transparent;border-radius:20px;padding:16px 12px;text-align:left;box-shadow:0 8px 24px #29215a0c;transition:.2s}.level-card:hover{transform:translateY(-4px);border-color:#d7ceff}.level-card .num{width:38px;height:38px;border-radius:12px;background:#f0edff;color:#674bd7;display:grid;place-items:center;font-weight:900;margin-bottom:10px}.level-card h3{font-size:16px}.level-card p{font-size:12px;color:var(--muted);margin:0}.level-card.done .num{background:#dff9ef;color:#15936b}
+.game-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:8px 0 16px;flex-wrap:wrap}.player-chip,.score-chip{background:#fff;border:1px solid var(--line);padding:9px 13px;border-radius:13px;font-weight:900}.score-chip{color:#6549d3}.progress-wrap{height:10px;background:#e7e5f6;border-radius:99px;overflow:hidden;margin:12px 0 22px}.progress{height:100%;width:0;background:linear-gradient(90deg,var(--purple),var(--pink));border-radius:99px;transition:width .3s}
+.play-card{max-width:900px;margin:0 auto;background:white;border:1px solid #fff;border-radius:26px;padding:clamp(20px,4vw,36px);box-shadow:var(--shadow)}.level-kicker{color:var(--purple);font-weight:900;font-size:12px;letter-spacing:.12em;text-transform:uppercase}.play-card h2{font-size:clamp(25px,4vw,36px);margin:7px 0}.instruction{color:var(--muted);margin:0 0 22px;line-height:1.6}.question-box{background:linear-gradient(135deg,#f5f2ff,#eff7ff);border:1px solid #e9e5ff;border-radius:20px;padding:22px;margin:16px 0}.question{font-size:clamp(19px,3vw,26px);font-weight:900;text-align:center;line-height:1.5}.subquestion{text-align:center;color:var(--muted);font-size:13px;margin-top:7px}.feedback{padding:12px 15px;border-radius:13px;margin:14px 0;font-weight:800;display:none}.feedback.show{display:block}.feedback.good{background:#e3fbf2;color:#137e5d}.feedback.bad{background:#fff0f2;color:#c43d63}.feedback.info{background:#fff7df;color:#8b6500}
+.match-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.match-col{display:grid;gap:9px}.match-item{padding:13px;border:2px solid var(--line);background:#fff;border-radius:14px;font-weight:900;color:var(--ink);min-height:48px}.match-item.selected{border-color:var(--purple);background:#f3f0ff}.match-item.matched{border-color:#8be0c2;background:#e8fbf3;color:#16845f;pointer-events:none}.match-item.wrong{animation:shake .25s}@keyframes shake{25%,75%{transform:translateX(-4px)}50%{transform:translateX(4px)}}
+.word-bank,.answer-slots{display:flex;gap:9px;flex-wrap:wrap;justify-content:center;min-height:54px;align-items:center}.word-chip{padding:11px 15px;border-radius:12px;background:white;border:2px solid #e5e1fa;font-weight:900;color:#51419f;box-shadow:0 4px 10px #34246b0c}.word-chip:disabled{opacity:.35;cursor:default}.slot{min-width:65px;min-height:44px;border:2px dashed #c9c3e8;border-radius:12px;padding:8px;background:#fff;color:var(--ink);font-weight:800}.slot.filled{border-style:solid;border-color:#a99aef;background:#f3f0ff}.options{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.option{padding:15px;border-radius:14px;border:2px solid var(--line);background:white;text-align:left;font-weight:900;color:var(--ink)}.option:hover{border-color:#b7a9ff;background:#f8f6ff}.option.correct{border-color:#65d6aa;background:#e7fbf2}.option.incorrect{border-color:#f3a1b4;background:#fff0f3}
+.text-answer{width:100%;padding:15px;border:2px solid var(--line);border-radius:14px;font-size:17px;font-weight:800;color:var(--ink);margin:8px 0}.story{font-size:17px;line-height:2.2}.story input{width:125px;max-width:100%;padding:7px 9px;border:2px solid #cfc6fa;border-radius:10px;font-weight:900;color:#5541bb;text-align:center}.timer{font-weight:900;color:#a06a00;background:#fff5d8;padding:8px 12px;border-radius:12px}
+.material-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.formula{padding:15px;border-radius:14px;background:#f5f2ff;margin:8px 0;font-weight:900;color:#5842bb}.verb-table{width:100%;border-collapse:collapse;font-size:14px}.verb-table th,.verb-table td{text-align:left;padding:10px;border-bottom:1px solid var(--line)}.verb-table th{color:#674bd7;background:#f7f5ff}.verb-table tr:last-child td{border:0}
+.result{text-align:center;padding:34px 20px}.trophy{font-size:76px;animation:bob 2.5s infinite}.result h2{font-size:42px}.result-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:700px;margin:22px auto}.stat{padding:16px;background:#f7f5ff;border-radius:15px}.stat strong{display:block;font-size:25px;color:#6549d3}.stat span{font-size:12px;color:var(--muted);font-weight:800}.certificate{max-width:720px;margin:20px auto;padding:25px;border:7px double #d7b64e;border-radius:14px;background:#fffdf3}.certificate h3{font-size:30px;color:#7255c9}.certificate .cert-name{font-family:Fredoka;font-size:32px;margin:12px}.hidden{display:none!important}.modal{position:fixed;inset:0;background:#17153bb8;display:none;place-items:center;padding:18px;z-index:20}.modal.show{display:grid}.modal-box{max-width:560px;width:100%;background:#fff;border-radius:24px;padding:26px;box-shadow:0 25px 70px #100d3155}.modal-box h2{font-size:28px}.modal-box p{color:var(--muted);line-height:1.6}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);background:#211d4d;color:white;padding:12px 18px;border-radius:13px;font-weight:800;opacity:0;transition:.25s;z-index:30;pointer-events:none}.toast.show{opacity:1;transform:translate(-50%,0)}.footer{text-align:center;color:#9997b4;font-size:12px;padding:28px 0 10px}
+@media(max-width:800px){.hero{grid-template-columns:1fr;text-align:center}.hero-art{min-height:230px;grid-row:1}.lead,.name-row{margin-left:auto;margin-right:auto}.button-row{justify-content:center}.level-grid{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:1fr}.material-grid{grid-template-columns:1fr}.result-stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.app{padding:14px}.topbar{align-items:flex-start}.brand{font-size:16px}.brand-icon{width:36px;height:36px}.top-actions .mini-btn{padding:8px}.hero{padding:22px 17px}.hero-art{min-height:205px}.name-row{flex-direction:column}.name-row .btn{width:100%}.level-grid{gap:8px}.level-card{padding:13px 10px}.play-card{padding:18px 14px}.match-grid{gap:7px}.match-item{font-size:13px;padding:10px 5px}.options{grid-template-columns:1fr}.question-box{padding:15px}.section-head{align-items:flex-start;flex-direction:column}}
+@media print{body{background:white}.topbar,.no-print,.footer{display:none!important}.app{max-width:none;padding:0}.screen{display:none!important}#resultScreen{display:block!important}.certificate{border:7px double #c9a43c;break-inside:avoid}.result{padding:0}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><div class="brand-icon">🗝️</div><span>ENGLISH PUZZLE ADVENTURE</span></div>
+    <div class="top-actions"><button class="mini-btn" id="soundToggle" aria-label="Toggle sound">🔊 Sound</button><button class="mini-btn" id="homeBtn">⌂ Home</button></div>
+  </header>
+
+  <main>
+    <section id="homeScreen" class="screen active">
+      <div class="hero">
+        <div>
+          <span class="eyebrow">✨ Grade 9 · English Learning Game</span>
+          <h1>MASTER THE<br><span>PAST TENSE!</span></h1>
+          <p class="lead">Jelajahi lima dunia puzzle, pecahkan tantangan grammar, kumpulkan kunci pengetahuan, dan jadilah <b>Past Tense Master!</b></p>
+          <div class="name-row"><input id="playerName" maxlength="24" placeholder="Masukkan nama pemain..." aria-label="Nama pemain"><button class="btn primary" id="startBtn">START GAME <span>➜</span></button></div>
+          <div class="button-row"><button class="btn secondary" data-open="howModal">📖 How to Play</button><button class="btn soft" data-screen="materialScreen">📚 Learning Material</button></div>
+          <p class="fine">🎮 Gratis dimainkan · Bisa di laptop dan smartphone · Progres tersimpan di browser ini</p>
+        </div>
+        <div class="hero-art"><div class="portal"><div class="mascot">🧙‍♂️</div></div><span class="float f1">⭐</span><span class="float f2">📚</span><span class="float f3">🗝️</span></div>
+      </div>
+      <div class="section-head"><div><h2>Choose Your Adventure</h2><p>Lima tantangan untuk menguasai Simple Past Tense.</p></div></div>
+      <div class="level-grid">
+        <button class="level-card" data-level="0"><div class="num">01</div><h3>Verb Hunter</h3><p>Match the verbs</p></button>
+        <button class="level-card" data-level="1"><div class="num">02</div><h3>Sentence Builder</h3><p>Build a sentence</p></button>
+        <button class="level-card" data-level="2"><div class="num">03</div><h3>Grammar Detective</h3><p>Fix the mistakes</p></button>
+        <button class="level-card" data-level="3"><div class="num">04</div><h3>Time Travel Quiz</h3><p>Choose the answer</p></button>
+        <button class="level-card" data-level="4"><div class="num">05</div><h3>Story Puzzle</h3><p>Complete the story</p></button>
+      </div>
+      <div class="grid-3" style="margin-top:18px">
+        <div class="feature"><div class="emoji">🏆</div><h3>Collect Rewards</h3><p>Dapatkan poin, badge, dan sertifikat setelah menyelesaikan petualangan.</p></div>
+        <div class="feature"><div class="emoji">🧠</div><h3>Learn by Playing</h3><p>Pelajari pola kalimat, regular verbs, irregular verbs, dan time signals.</p></div>
+        <div class="feature"><div class="emoji">💡</div><h3>Helpful Feedback</h3><p>Dapatkan petunjuk dan pembahasan agar semakin paham.</p></div>
+      </div>
+    </section>
+
+    <section id="materialScreen" class="screen">
+      <div class="section-head"><div><span class="eyebrow">📚 Learning Zone</span><h2 style="font-size:36px;margin-top:10px">Simple Past Tense</h2><p>Pelajari ringkasan materi sebelum memulai tantangan.</p></div><button class="btn soft" data-screen="homeScreen">← Back</button></div>
+      <div class="material-grid">
+        <article class="card"><h3>🎯 A. Definition</h3><p>Simple Past Tense digunakan untuk menyatakan kegiatan atau peristiwa yang terjadi dan selesai di masa lampau.</p><div class="formula">Subject + Verb 2 + Object / Complement</div><p><b>Example:</b> She visited her grandmother yesterday.</p><p>They played football last Sunday.</p></article>
+        <article class="card"><h3>🧩 B. Sentence Patterns</h3><b>Positive (+)</b><div class="formula">Subject + Verb 2 + ...</div><b>Negative (−)</b><div class="formula">Subject + did not + Verb 1 + ...</div><b>Interrogative (?)</b><div class="formula">Did + Subject + Verb 1 + ...?</div><p><b>Remember:</b> Setelah <i>did / did not</i>, gunakan Verb 1.</p></article>
+        <article class="card"><h3>📖 C. Regular & Irregular Verbs</h3><div style="overflow-x:auto"><table class="verb-table"><thead><tr><th>Verb 1</th><th>Verb 2</th><th>Meaning</th></tr></thead><tbody id="verbTable"></tbody></table></div></article>
+        <article class="card"><h3>⏰ D. Time Signals</h3><p>Kata keterangan waktu yang sering digunakan:</p><div class="button-row"><span class="eyebrow">yesterday</span><span class="eyebrow">last night</span><span class="eyebrow">last week</span><span class="eyebrow">last month</span><span class="eyebrow">two days ago</span><span class="eyebrow">a week ago</span><span class="eyebrow">in 2020</span></div><hr style="border:0;border-top:1px solid var(--line);margin:20px 0"><h3>Quick Check</h3><p>She did not _____ to school yesterday.</p><div class="button-row"><button class="btn soft quick" data-answer="went">went</button><button class="btn soft quick" data-answer="go">go</button><button class="btn soft quick" data-answer="goes">goes</button></div><div id="quickFeedback" class="feedback"></div></article>
+      </div>
+      <div style="text-align:center;margin:22px"><button class="btn primary" id="materialStart">I'M READY — START GAME 🚀</button></div>
+    </section>
+
+    <section id="gameScreen" class="screen">
+      <div class="game-head"><div class="player-chip">👤 <span id="gamePlayer">Player</span></div><div class="score-chip">⭐ <span id="scoreDisplay">0</span> points</div><div class="timer hidden" id="timerDisplay">⏱ 20s</div><button class="btn soft" id="pauseBtn">Ⅱ Pause</button></div>
+      <div class="progress-wrap"><div class="progress" id="overallProgress"></div></div>
+      <div class="play-card">
+        <div class="level-kicker" id="levelKicker">LEVEL 01 · VERB HUNTER</div>
+        <h2 id="levelTitle">Find the Past Forms!</h2>
+        <p class="instruction" id="levelInstruction">Cocokkan Verb 1 dengan Verb 2 yang tepat.</p>
+        <div id="questionArea"></div>
+        <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+        <div class="button-row" style="justify-content:space-between;margin-top:18px"><button class="btn soft" id="hintBtn">💡 Hint</button><div class="button-row"><button class="btn soft" id="resetBtn">↻ Reset</button><button class="btn primary hidden" id="nextBtn">Continue ➜</button></div></div>
+      </div>
+    </section>
+
+    <section id="resultScreen" class="screen">
+      <div class="card result">
+        <div class="trophy">🏆</div><span class="eyebrow">Adventure Completed</span><h2>YOU DID IT!</h2><p class="lead" style="margin:0 auto">Hebat, <b id="resultName">Explorer</b>! Kamu telah menyelesaikan semua dunia puzzle.</p>
+        <div class="result-stats">
+          <div class="stat"><strong id="finalScore">0</strong><span>TOTAL POINTS</span></div>
+          <div class="stat"><strong id="finalCorrect">0</strong><span>CORRECT</span></div>
+          <div class="stat"><strong id="finalWrong">0</strong><span>INCORRECT</span></div>
+          <div class="stat"><strong id="finalPercent">0%</strong><span>ACCURACY</span></div>
+        </div>
+        <h3 id="finalGrade">Excellent!</h3><p id="gradeText" style="color:var(--muted)"></p>
+        <div class="certificate" id="certificate"><div style="font-size:13px;letter-spacing:.18em;color:#9a7a27;font-weight:900">CERTIFICATE OF ACHIEVEMENT</div><div style="font-size:46px;margin:8px">🎖️</div><h3>Past Tense Master</h3><p>This certificate is proudly presented to</p><div class="cert-name" id="certName">Student Name</div><p>For successfully completing all five English Puzzle Adventure levels<br>and demonstrating knowledge of the Simple Past Tense.</p><div style="display:flex;justify-content:space-between;margin-top:25px;font-size:12px;color:#8a7542"><span>ENGLISH LEARNING GAME</span><span id="certDate"></span></div></div>
+        <div class="button-row no-print" style="justify-content:center"><button class="btn primary" id="printBtn">🖨️ Print Certificate</button><button class="btn secondary" id="reviewBtn">📋 Review Answers</button><button class="btn soft" id="playAgainBtn">↻ Play Again</button></div>
+      </div>
+      <div id="reviewPanel" class="card hidden" style="margin-top:18px;text-align:left"><h3>📋 Answer Review</h3><div id="reviewList"></div></div>
+    </section>
+  </main>
+  <div class="footer">ENGLISH PUZZLE ADVENTURE · Learn, Play, and Become a Past Tense Master ✨</div>
+</div>
+
+<div class="modal" id="howModal"><div class="modal-box"><h2>🧭 How to Play</h2><p>1. Masukkan nama pemain terlebih dahulu.<br>2. Pelajari materi Simple Past Tense jika diperlukan.<br>3. Selesaikan lima level secara berurutan.<br>4. Jawaban benar mendapatkan 10 poin. Setiap level selesai mendapat bonus 20 poin, ditambah 30 poin jika tanpa kesalahan.<br>5. Gunakan tombol Hint jika membutuhkan bantuan.<br>6. Selesaikan seluruh level untuk memperoleh sertifikat Past Tense Master.</p><div class="button-row"><button class="btn primary" data-close="howModal">Got it!</button></div></div></div>
+<div class="modal" id="pauseModal"><div class="modal-box"><h2>⏸️ Game Paused</h2><p>Istirahat sebentar, Explorer! Tekan tombol di bawah untuk melanjutkan petualanganmu.</p><button class="btn primary" id="resumeBtn">▶ Resume Game</button></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+"use strict";
+const $=s=>document.querySelector(s);
+const screens=["homeScreen","materialScreen","gameScreen","resultScreen"];
+const verbs=[["go","went","pergi"],["eat","ate","makan"],["drink","drank","minum"],["see","saw","melihat"],["buy","bought","membeli"],["write","wrote","menulis"],["read","read","membaca"],["play","played","bermain"],["visit","visited","mengunjungi"],["study","studied","belajar"],["watch","watched","menonton"],["walk","walked","berjalan"],["take","took","mengambil"],["make","made","membuat"],["come","came","datang"],["have","had","memiliki"],["give","gave","memberi"],["sleep","slept","tidur"],["speak","spoke","berbicara"],["run","ran","berlari"]];
+$("#verbTable").innerHTML=verbs.map(v=>`<tr><td><b>${v[0]}</b></td><td>${v[1]}</td><td>${v[2]}</td></tr>`).join("");
+let player="",score=0,correct=0,wrong=0,level=0,questionIndex=0,levelMistakes=0,answered=false,soundOn=true,selected=null,matched=new Set(),timer=null,timeLeft=20,paused=false,review=[],currentQuestions=[],storyInputs=[];
+const shuffle=a=>[...a].sort(()=>Math.random()-.5);
+function showScreen(id){screens.forEach(s=>$("#"+s).classList.toggle("active",s===id));window.scrollTo({top:0,behavior:"smooth"});}
+function toast(msg){const t=$("#toast");t.textContent=msg;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2100)}
+function beep(type="good"){if(!soundOn)return;try{const C=window.AudioContext||window.webkitAudioContext,ctx=new C(),o=ctx.createOscillator(),g=ctx.createGain();o.connect(g);g.connect(ctx.destination);o.type="sine";o.frequency.value=type==="bad"?190:type==="win"?740:560;g.gain.setValueAtTime(.08,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.18);o.start();o.stop(ctx.currentTime+.19);setTimeout(()=>ctx.close(),300)}catch(e){}}
+function updateHUD(){$("#scoreDisplay").textContent=score;$("#overallProgress").style.width=((level+(questionIndex/(currentQuestions.length||1)))/5*100)+"%";}
+function startGame(){const n=$("#playerName").value.trim();if(!n){toast("Masukkan nama pemain terlebih dahulu!");$("#playerName").focus();return}player=n;localStorage.setItem("epa_player",player);score=0;correct=0;wrong=0;level=0;review=[];$("#gamePlayer").textContent=player;showScreen("gameScreen");startLevel(0)}
+function startLevel(n){clearInterval(timer);level=n;questionIndex=0;levelMistakes=0;answered=false;selected=null;matched=new Set();$("#nextBtn").classList.add("hidden");$("#hintBtn").disabled=false;const configs=[
+["LEVEL 01 · VERB HUNTER","Find the Past Forms!","Pilih satu Verb 1 di kolom kiri, lalu pasangkan dengan Verb 2 yang tepat."],
+["LEVEL 02 · SENTENCE BUILDER","Build the Sentence!","Klik kata-kata sesuai urutan untuk membentuk kalimat Simple Past Tense."],
+["LEVEL 03 · GRAMMAR DETECTIVE","Fix the Grammar!","Perbaiki kalimat yang salah dengan mengetik kalimat yang benar."],
+["LEVEL 04 · TIME TRAVEL QUIZ","Choose the Correct Answer!","Pilih satu jawaban paling tepat. Kamu memiliki 20 detik untuk setiap soal."],
+["LEVEL 05 · THE FINAL STORY PUZZLE","Complete the Story!","Lengkapi cerita dengan bentuk kata kerja Simple Past Tense yang benar."]
+];$("#levelKicker").textContent=configs[n][0];$("#levelTitle").textContent=configs[n][1];$("#levelInstruction").textContent=configs[n][2];$("#timerDisplay").classList.toggle("hidden",n!==3);
+if(n===0)currentQuestions=shuffle(verbs).slice(0,10);
+if(n===1)currentQuestions=shuffle(sentenceData).slice(0,10);
+if(n===2)currentQuestions=shuffle(errorData).slice(0,10);
+if(n===3)currentQuestions=shuffle(quizData).slice(0,15);
+if(n===4)currentQuestions=storyData;
+renderQuestion();updateHUD();}
+const sentenceData=[
+{words:["I","visited","my grandmother","yesterday"],answer:"I visited my grandmother yesterday."},
+{words:["She","played","football","yesterday"],answer:"She played football yesterday."},
+{words:["They","went","to school","last Monday"],answer:"They went to school last Monday."},
+{words:["He","read","a book","last night"],answer:"He read a book last night."},
+{words:["We","watched","a movie","yesterday"],answer:"We watched a movie yesterday."},
+{words:["My father","bought","a new car","last year"],answer:"My father bought a new car last year."},
+{words:["Rina","studied","English","two days ago"],answer:"Rina studied English two days ago."},
+{words:["The children","ran","in the park","this morning"],answer:"The children ran in the park this morning."},
+{words:["I","wrote","a letter","last week"],answer:"I wrote a letter last week."},
+{words:["Our teacher","came","early","yesterday"],answer:"Our teacher came early yesterday."},
+{words:["My brother","drank","milk","this morning"],answer:"My brother drank milk this morning."}
+];
+const errorData=[
+{bad:"She go to school yesterday.",answer:"She went to school yesterday.",why:"Go adalah irregular verb. Bentuk lampau dari go adalah went."},
+{bad:"They did not played football.",answer:"They did not play football.",why:"Setelah did not, gunakan Verb 1 (play), bukan Verb 2."},
+{bad:"Did he went to the market?",answer:"Did he go to the market?",why:"Dalam pertanyaan dengan Did, kata kerja kembali ke Verb 1."},
+{bad:"I watch television last night.",answer:"I watched television last night.",why:"Last night menunjukkan masa lampau, jadi gunakan Verb 2: watched."},
+{bad:"We was happy yesterday.",answer:"We were happy yesterday.",why:"Subjek we menggunakan were, bukan was."},
+{bad:"She buyed a new bag last week.",answer:"She bought a new bag last week.",why:"Buy adalah irregular verb. Bentuk lampaunya bought."},
+{bad:"He didn't went to class.",answer:"He didn't go to class.",why:"Didn't adalah did not, sehingga kata kerja setelahnya berbentuk dasar."},
+{bad:"My mother cook dinner yesterday.",answer:"My mother cooked dinner yesterday.",why:"Regular verb cook menjadi cooked dalam Simple Past."},
+{bad:"Did they visited Bali?",answer:"Did they visit Bali?",why:"Setelah Did, gunakan Verb 1 yaitu visit."},
+{bad:"I am tired yesterday.",answer:"I was tired yesterday.",why:"Untuk keadaan lampau dengan subjek I, gunakan was."},
+{bad:"The students studyed English.",answer:"The students studied English.",why:"Study berakhiran consonant + y, sehingga y berubah menjadi ied."}
+];
+const quizData=[
+{q:"My mother _____ fried rice yesterday.",o:["cook","cooked","cooks","cooking"],a:1,e:"Cook adalah regular verb. Bentuk past-nya cooked."},
+{q:"We _____ to Bali last year.",o:["go","goes","went","going"],a:2,e:"Go adalah irregular verb. Bentuk past-nya went."},
+{q:"She did not _____ the movie.",o:["watched","watches","watch","watching"],a:2,e:"Setelah did not, gunakan Verb 1: watch."},
+{q:"_____ you visit your uncle last week?",o:["Do","Does","Did","Are"],a:2,e:"Pertanyaan Simple Past menggunakan Did + subject + Verb 1."},
+{q:"They _____ basketball two days ago.",o:["play","plays","played","playing"],a:2,e:"Play menjadi played dalam bentuk lampau."},
+{q:"I _____ a letter to my friend yesterday.",o:["write","wrote","written","writes"],a:1,e:"Write adalah irregular verb. Bentuk past-nya wrote."},
+{q:"He _____ very tired last night.",o:["is","are","was","were"],a:2,e:"Subjek he menggunakan was untuk keadaan lampau."},
+{q:"My parents _____ a new house in 2020.",o:["buy","buys","bought","buying"],a:2,e:"Buy adalah irregular verb. Bentuk past-nya bought."},
+{q:"We _____ not at home yesterday.",o:["was","were","are","be"],a:1,e:"Subjek we menggunakan were."},
+{q:"Sinta _____ English last night.",o:["study","studies","studied","studying"],a:2,e:"Study berubah menjadi studied (y menjadi ied)."},
+{q:"Did your brother _____ the dishes?",o:["washed","wash","washes","washing"],a:1,e:"Setelah Did, gunakan Verb 1: wash."},
+{q:"The baby _____ for eight hours last night.",o:["sleep","slept","sleeps","sleeping"],a:1,e:"Sleep adalah irregular verb. Bentuk past-nya slept."},
+{q:"I _____ my best friend at the library yesterday.",o:["see","saw","seen","sees"],a:1,e:"See adalah irregular verb. Bentuk past-nya saw."},
+{q:"They _____ to the museum last Sunday.",o:["didn't went","don't go","didn't go","not went"],a:2,e:"Bentuk negatif: did not + Verb 1."},
+{q:"Which time signal refers to the past?",o:["tomorrow","next week","yesterday","right now"],a:2,e:"Yesterday berarti kemarin dan menunjukkan masa lampau."}
+];
+const storyData=[
+{title:"My Unforgettable Holiday",parts:[["Last holiday, I ", "go","went"],[" to Yogyakarta with my family. We ", "visit","visited"],[" several interesting places. My father ", "take","took"],[" many pictures. My mother ", "buy","bought"],[" some souvenirs. We ", "eat","ate"],[" delicious traditional food. It ", "be","was"],[" an unforgettable holiday."]]},
+{title:"A Day at the Beach",parts:[["Last Sunday, my friends and I ", "go","went"],[" to the beach. We ", "swim","swam"],[" in the sea and ", "play","played"],[" volleyball. My friend ", "find","found"],[" a beautiful shell. We ", "drink","drank"],[" fresh coconut water and ", "return","returned"],[" home in the afternoon."]]}
+];
+function renderQuestion(){answered=false;$("#feedback").className="feedback";$("#feedback").textContent="";$("#nextBtn").classList.add("hidden");$("#hintBtn").disabled=false;const area=$("#questionArea"),q=currentQuestions[questionIndex];let html="";
+if(level===0){if(matched.size===0)selected=null;const left=currentQuestions.map(v=>v[0]),right=shuffle(currentQuestions.map(v=>v[1]));window.matchRight=right;html=`<div class="question-box"><div class="question">🧩 Match Verb 1 with Verb 2</div><div class="subquestion">Pasangan ditemukan: ${matched.size}/10</div></div><div class="match-grid"><div class="match-col">${left.map((v,i)=>`<button class="match-item" data-left="${v}">${v}</button>`).join("")}</div><div class="match-col">${right.map(v=>`<button class="match-item" data-right="${v}">${v}</button>`).join("")}</div></div>`;}
+if(level===1){const words=shuffle(q.words);window.sentenceWords=words;window.sentenceChosen=[];html=`<div class="question-box"><div class="question">🧱 Arrange the words!</div><div class="subquestion">Tap the word cards in the correct order.</div></div><div class="answer-slots" id="answerSlots"></div><div class="word-bank" id="wordBank">${words.map((w,i)=>`<button class="word-chip" data-word="${i}">${w}</button>`).join("")}</div><div class="button-row" style="justify-content:center;margin-top:15px"><button class="btn soft" id="undoWord">↶ Undo last</button></div>`;}
+if(level===2){html=`<div class="question-box"><div class="question">🕵️ Find and fix the mistake</div><div class="subquestion">Rewrite this sentence correctly.</div></div><div class="question" style="margin:20px 0;color:#c14d72">“${q.bad}”</div><input id="fixInput" class="text-answer" placeholder="Type the corrected sentence..." autocomplete="off"><div class="fine">Perhatikan Verb 2, did/did not, dan was/were.</div>`;}
+if(level===3){timeLeft=20;html=`<div class="question-box"><div class="question">${q.q}</div><div class="subquestion">Question ${questionIndex+1} of ${currentQuestions.length}</div></div><div class="options">${q.o.map((o,i)=>`<button class="option" data-option="${i}">${String.fromCharCode(65+i)}. ${o}</button>`).join("")}</div>`;startTimer();}
+if(level===4){const story=q;let p=0;html=`<div class="question-box"><div class="question">📜 ${story.title}</div><div class="subquestion">Complete each blank using the correct past form.</div></div><div class="story" id="storyText"></div><div class="button-row" style="justify-content:center;margin-top:18px"><button class="btn primary" id="checkStory">Check Story ✓</button></div>`;}
+area.innerHTML=html;
+if(level===0)bindMatch();if(level===1)bindSentence();if(level===2){$("#fixInput").addEventListener("keydown",e=>{if(e.key==="Enter")checkText()});}
+if(level===3)document.querySelectorAll("[data-option]").forEach(b=>b.addEventListener("click",()=>answerQuiz(+b.dataset.option)));
+if(level===4)renderStory();
+updateHUD();}
+function bindMatch(){document.querySelectorAll("[data-left]").forEach(b=>b.addEventListener("click",()=>{if(b.classList.contains("matched"))return;document.querySelectorAll("[data-left]").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");selected=b.dataset.left;}));document.querySelectorAll("[data-right]").forEach(b=>b.addEventListener("click",()=>{if(!selected||b.classList.contains("matched"))return;const pair=verbs.find(v=>v[0]===selected);if(pair&&pair[1]===b.dataset.right){b.classList.add("matched");const l=document.querySelector(`[data-left="${selected}"]`);l.classList.add("matched");matched.add(selected);score+=10;correct++;beep();$("#scoreDisplay").textContent=score;$("#feedback").className="feedback show good";$("#feedback").textContent=`Excellent! ${pair[0]} → ${pair[1]} (${pair[2]}).`;selected=null;if(matched.size===10)completeLevel();else document.querySelectorAll("[data-left]").forEach(x=>x.classList.remove("selected"));}else{wrong++;levelMistakes++;b.classList.add("wrong");beep("bad");$("#feedback").className="feedback show bad";$("#feedback").textContent="Not a match. Try another Verb 2!";setTimeout(()=>b.classList.remove("wrong"),300);}}));}
+function bindSentence(){document.querySelectorAll("[data-word]").forEach(b=>b.addEventListener("click",()=>{if(b.disabled)return;window.sentenceChosen.push(+b.dataset.word);b.disabled=true;drawSlots();}));$("#undoWord").addEventListener("click",()=>{const i=window.sentenceChosen.pop();if(i!==undefined)document.querySelector(`[data-word="${i}"]`).disabled=false;drawSlots();});drawSlots();}
+function drawSlots(){const chosen=window.sentenceChosen;$("#answerSlots").innerHTML=chosen.length?chosen.map(i=>`<span class="slot filled">${window.sentenceWords[i]}</span>`).join(""):`<span style="color:#9997b4;font-size:13px">Your sentence will appear here…</span>`;let check=$("#sentenceCheck");if(!check){check=document.createElement("button");check.id="sentenceCheck";check.className="btn primary";check.textContent="CHECK ANSWER ✓";check.style.display="block";check.style.margin="18px auto 0";$("#questionArea").appendChild(check);check.addEventListener("click",checkSentence)}}
+function checkSentence(){const q=currentQuestions[questionIndex],actual=window.sentenceChosen.map(i=>window.sentenceWords[i]).join(" ").replace(/[.!?]$/,"").toLowerCase(),expected=q.answer.replace(/[.!?]$/,"").toLowerCase();if(actual===expected){markCorrect("Great sentence! Word order and grammar are correct.");}else{markWrong("Not quite. Check the subject, Verb 2, and time signal, then try again.");}}
+function normalize(s){return s.toLowerCase().trim().replace(/[.!?]+$/,"").replace(/\s+/g," ").replace(/[’']/g,"'");}
+function checkText(){const q=currentQuestions[questionIndex],v=$("#fixInput").value;if(normalize(v)===normalize(q.answer)){markCorrect("Correct! "+q.why);}else{markWrong("Keep investigating! Check the verb form and sentence structure.");}}
+function answerQuiz(i){if(answered)return;const q=currentQuestions[questionIndex];clearInterval(timer);const buttons=[...document.querySelectorAll("[data-option]")];buttons.forEach(b=>b.disabled=true);if(i===q.a){buttons[i].classList.add("correct");markCorrect(q.e);}else{buttons[i].classList.add("incorrect");buttons[q.a].classList.add("correct");markWrong(q.e+" Correct answer: "+q.o[q.a]+".");}}
+function renderStory(){const parts=currentQuestions[0].parts;let html="",idx=0;parts.forEach(p=>{html+=p[0];if(p.length===3){html+=`<input data-story="${idx}" placeholder="${p[1]}" aria-label="Verb blank ${idx+1}">`;idx++;}});$("#storyText").innerHTML=html;$("#checkStory").addEventListener("click",checkStory);}
+function checkStory(){if(answered)return;const inputs=[...document.querySelectorAll("[data-story]")];let all=true;inputs.forEach((input,i)=>{const expected=currentQuestions[0].parts.filter(p=>p.length===3)[i][2];if(normalize(input.value)===expected){input.style.borderColor="#54c99a";input.disabled=true;}else{input.style.borderColor="#ef8aa4";all=false;}});if(all){markCorrect("Amazing! You completed the story with the correct past forms.");}else{markWrong("Some answers need another look. The placeholders show the base verbs. Try again!");}}
+function markCorrect(msg){if(answered)return;answered=true;correct++;score+=10;beep();showFeedback(true,msg);recordReview(true,msg);$("#scoreDisplay").textContent=score;$("#hintBtn").disabled=true;if(level!==0)$("#nextBtn").classList.remove("hidden");updateHUD();if(level===4){completeLevel();}}
+function markWrong(msg){wrong++;levelMistakes++;beep("bad");showFeedback(false,msg);if(level===3){answered=true;recordReview(false,msg);$("#nextBtn").classList.remove("hidden");}}
+function showFeedback(good,msg){$("#feedback").className="feedback show "+(good?"good":"bad");$("#feedback").textContent=(good?"✓ ":"✕ ")+msg;}
+function recordReview(ok,msg){const q=currentQuestions[questionIndex];review.push({level:level+1,prompt:level===0?`Verb match: ${q[0]}`:level===1?q.answer:level===2?q.bad:level===3?q.q:currentQuestions[0].title,correct:ok,detail:msg});}
+function completeLevel(){clearInterval(timer);if(levelMistakes===0)score+=30;score+=20;$("#scoreDisplay").textContent=score;$("#feedback").className="feedback show good";$("#feedback").textContent="🏆 Level completed! +20 bonus points"+(levelMistakes===0?" and +30 flawless bonus!":"");$("#nextBtn").classList.remove("hidden");$("#nextBtn").textContent=level===4?"See Results 🏆":"Next Level ➜";$("#hintBtn").disabled=true;beep("win");}
+function advance(){if(level===0){if(matched.size<10)return;finishLevelAdvance();return;}if(level===4){finishLevelAdvance();return;}if(!answered)return;if(questionIndex<currentQuestions.length-1){questionIndex++;renderQuestion();}else{completeLevel();}}
+function finishLevelAdvance(){clearInterval(timer);if(level<4){startLevel(level+1);}else{showResults();}}
+function startTimer(){clearInterval(timer);$("#timerDisplay").textContent="⏱ "+timeLeft+"s";timer=setInterval(()=>{if(paused)return;timeLeft--;$("#timerDisplay").textContent="⏱ "+timeLeft+"s";if(timeLeft<=0){clearInterval(timer);if(!answered){wrong++;levelMistakes++;answered=true;const q=currentQuestions[questionIndex];showFeedback(false,"Time is up! "+q.e+" Correct answer: "+q.o[q.a]+".");recordReview(false,"Time is up. Correct answer: "+q.o[q.a]);document.querySelectorAll("[data-option]").forEach((b,i)=>{b.disabled=true;if(i===q.a)b.classList.add("correct")});$("#nextBtn").classList.remove("hidden");}}},1000);}
+function hint(){let msg="";if(level===0)msg="Hint: Remember common irregular verbs, e.g. go → went, see → saw.";if(level===1)msg="Hint: Start with the subject (I, she, they, etc.), then Verb 2.";if(level===2)msg="Hint: Check the verb after did/did not. It must be Verb 1.";if(level===3)msg=currentQuestions[questionIndex].e;if(level===4)msg="Hint: Look at the base verb in parentheses and change it to Verb 2.";$("#feedback").className="feedback show info";$("#feedback").textContent="💡 "+msg;toast("Hint unlocked!");}
+function showResults(){clearInterval(timer);showScreen("resultScreen");const total=correct+wrong,pct=total?Math.round(correct/total*100):0;$("#resultName").textContent=player;$("#finalScore").textContent=score;$("#finalCorrect").textContent=correct;$("#finalWrong").textContent=wrong;$("#finalPercent").textContent=pct+"%";let grade=pct>=90?"Excellent!":pct>=80?"Very Good!":pct>=70?"Good!":pct>=60?"Keep Practicing!":"Don't Give Up!";$("#finalGrade").textContent=grade;$("#gradeText").textContent=pct>=70?"Kamu sudah menunjukkan pemahaman yang baik tentang Simple Past Tense. Terus berlatih!":"Terus berlatih. Pelajari kembali materi dan coba lagi untuk meningkatkan hasilmu.";$("#certName").textContent=player;$("#certDate").textContent=new Date().toLocaleDateString("id-ID",{day:"numeric",month:"long",year:"numeric"});localStorage.setItem("epa_best",Math.max(score,Number(localStorage.getItem("epa_best")||0)));$("#reviewList").innerHTML=review.map((r,i)=>`<div style="padding:11px 0;border-bottom:1px solid var(--line)"><b>${i+1}. Level ${r.level}</b> · ${r.correct?"<span style='color:#16845f'>Correct</span>":"<span style='color:#c43d63'>Review</span>"}<div style="font-size:13px;color:var(--muted)">${r.prompt}</div><div style="font-size:13px">${r.detail}</div></div>`).join("");beep("win");}
+$("#startBtn").addEventListener("click",startGame);$("#materialStart").addEventListener("click",()=>{if(!player){showScreen("homeScreen");toast("Masukkan nama pemain untuk memulai.");return}showScreen("gameScreen");startLevel(0)});$("#homeBtn").addEventListener("click",()=>{clearInterval(timer);showScreen("homeScreen")});
+document.querySelectorAll("[data-screen]").forEach(b=>b.addEventListener("click",()=>showScreen(b.dataset.screen)));
+document.querySelectorAll("[data-open]").forEach(b=>b.addEventListener("click",()=>$("#"+b.dataset.open).classList.add("show")));
+document.querySelectorAll("[data-close]").forEach(b=>b.addEventListener("click",()=>$("#"+b.dataset.close).classList.remove("show")));
+document.querySelectorAll("[data-level]").forEach(b=>b.addEventListener("click",()=>{if(!player){toast("Masukkan nama pemain terlebih dahulu.");$("#playerName").focus();return}const n=+b.dataset.level;if(n!==0){toast("Selesaikan level secara berurutan ya!");return}showScreen("gameScreen");startLevel(0)}));
+$("#nextBtn").addEventListener("click",advance);$("#hintBtn").addEventListener("click",hint);$("#resetBtn").addEventListener("click",()=>{if(level===0){matched=new Set();selected=null;renderQuestion()}else if(level===1){window.sentenceChosen=[];document.querySelectorAll("[data-word]").forEach(b=>b.disabled=false);drawSlots()}else if(level===2){$("#fixInput").value="";}else if(level===3){renderQuestion()}else{renderQuestion()}});
+$("#pauseBtn").addEventListener("click",()=>{paused=true;$("#pauseModal").classList.add("show")});$("#resumeBtn").addEventListener("click",()=>{paused=false;$("#pauseModal").classList.remove("show")});
+$("#soundToggle").addEventListener("click",()=>{soundOn=!soundOn;$("#soundToggle").textContent=soundOn?"🔊 Sound":"🔇 Muted"});
+$("#printBtn").addEventListener("click",()=>window.print());$("#playAgainBtn").addEventListener("click",()=>{showScreen("homeScreen");$("#playerName").value=player;toast("Siap untuk petualangan baru!")});
+$("#reviewBtn").addEventListener("click",()=>$("#reviewPanel").classList.toggle("hidden"));
+document.querySelectorAll(".quick").forEach(b=>b.addEventListener("click",()=>{const ok=b.dataset.answer==="go";$("#quickFeedback").className="feedback show "+(ok?"good":"bad");$("#quickFeedback").textContent=ok?"Correct! Setelah did not gunakan Verb 1 (go).":"Not quite. Setelah did not gunakan Verb 1.";}));
+const saved=localStorage.getItem("epa_player");if(saved)$("#playerName").value=saved;
+</script>
+</body>
+</html>
